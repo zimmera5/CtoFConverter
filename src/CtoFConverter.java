@@ -35,7 +35,7 @@ public class CtoFConverter
         } while (temp1 >= 100 && temp1 <= 0);
 
 
-        temp2 = temp1 * 1.8 + 32;
+        temp2 = (temp1 * 1.8) + 32;
         System.out.println("The temperature in Fahrenheit: " + temp2 + "F");
 
     }
