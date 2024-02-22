@@ -33,7 +33,7 @@ public class CtoFConverter
                       trash = in.nextLine(); // Read as a string
                       System.out.println("You said the temperature is " + temp1 + "C");
                       System.out.println("That is not valid input or out or range try again.");
-                      done = false;
+
                   }
               }while(!done);
 
