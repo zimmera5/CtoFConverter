@@ -12,37 +12,51 @@ public class CtoFConverter
         boolean done = true;
 
 
-        do {
+        do
+        {
             // Getting user input
             System.out.print("Enter a temperature in Celsius: ");
 
-              do {
+
 
                   //Check for valid input
-                  if (in.hasNextDouble()) {
 
-                      temp1 = in.nextDouble(); // Ok to read as a number
-                      in.nextLine(); // Clears buffer
-                      done = true;
+                   if (in.hasNextDouble())
+                   {
 
-
-                  }
-                  // Bad input not  an int or within range
-                  else {
-
-                      trash = in.nextLine(); // Read as a string
-                      System.out.println("You said the temperature is " + temp1 + "C");
-                      System.out.println("That is not valid input or out or range try again.");
-
-                  }
-              }while(!done);
+                       temp1 = in.nextDouble(); // Ok to read as a number
+                       in.nextLine(); // Clears buffer
+                   }
 
 
-        } while (temp1 >= 100 && temp1 <= 0);
+
+
+        // Bad input not  an int or within range
+            else {
+
+                trash = in.nextLine(); // Read as a string
+                System.out.println("You said the temperature is " + trash + "C");
+                System.out.println("That is not valid input or out or range try again.");
+            }
+
+
+
+
+        }while( (!(temp1 < 101)) || (temp1 < -1));
+
 
 
         temp2 = (temp1 * 1.8) + 32;
-        System.out.println("The temperature in Fahrenheit: " + temp2 + "F");
+        System.out.printf("The temperature in Fahrenheit: %.2f", + temp2);
+
+
+
+
+
+
+
+
+
 
 
     }
