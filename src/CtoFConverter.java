@@ -9,7 +9,7 @@ public class CtoFConverter
         String trash = "";
         double temp1 = 0.0;
         double temp2 = 0.0;
-        boolean done = true;
+        boolean done = false;  //this needs to be false to start, so we can flip it to true when we get what we want
 
         do
         {
@@ -20,16 +20,11 @@ public class CtoFConverter
 
             if (in.hasNextDouble()){
 
+                
                 temp1 = in.nextDouble(); // Ok to read as a number
                 in.nextLine(); // Clears buffer
-                //this is a good place to put your 'done' flag, allows an exit to the loop
-                //sometimes people just put 'break;' and dont rely on a flag to exit a loop
-                //flags vs breaks is a topic debated a lot, and the answer between them is it depends
-                //breaks are nice when you have lots of loops or your loop is small
-                //flags are better for larger loops because of readability/control
-
-                //if you want to test for range, do it here instead
-                //if it falls within range, you can set done = true - - else sout that number is out of range - - your loop will begin again
+                done = true;  //this is your sentinel to exit the loop
+                
  
             }
             // Bad input not  an int or within range
@@ -39,10 +34,9 @@ public class CtoFConverter
                 System.out.println("You said the temperature is " + trash + "C");
                 System.out.println("That is not valid input or out or range try again.");
             }
-        }while( (!(temp1 < 101)) || (temp1 < -1)); //I wouldn't worry too much about this being your sentinel, make done your sentinel
+        }while(done==false); //as long as done is false, we keep looping.  Can also write this as (!done) instead
 
-        //}while(done == false);
-        //now you can just have a simple flag, instead of going through the range testing
+        //don't need a range, just see if the known boiling/freezing points match what you would expect
 
         temp2 = (temp1 * 1.8) + 32;
         System.out.printf("The temperature in Fahrenheit: %.2f", + temp2);
